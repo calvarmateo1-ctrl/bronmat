@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate AIgency - Transformación Digital para Bronmat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: #1a1a1a;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        .navbar-menu a:hover {
+            color: #ff9500;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0066cc 100%);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 900px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background-color: #ff9500;
+            color: white;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+        }
+
+        .hero-footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        /* OPPORTUNITY SECTION */
+        .opportunity-section {
+            background-color: white;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* ELEVATE SECTION */
+        .elevate-section {
+            background-color: #f0f4ff;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-list {
+            margin: 40px 0;
+            font-size: 18px;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            list-style: none;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .tools-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid #ff9500;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        /* CASOS DE EXITO */
+        .cases-section {
+            background-color: white;
+        }
+
+        .case-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .case-card.featured {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+        }
+
+        .case-card.featured .case-label,
+        .case-card.featured .case-result {
+            color: white;
+        }
+
+        .case-empresa {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .case-label {
+            font-weight: bold;
+            color: #0066cc;
+            margin-top: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .case-content {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .case-result {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff9500;
+            margin: 20px 0;
+        }
+
+        .case-card.featured .case-result {
+            color: #ff9500;
+        }
+
+        .case-extras {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .case-extras li {
+            margin-bottom: 8px;
+        }
+
+        /* SOLUCIONES BRONMAT */
+        .solutions-section {
+            background-color: #f8f9fa;
+        }
+
+        .solution-card {
+            background-color: white;
+            border-left: 5px solid #ff9500;
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .solution-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+
+        .solution-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .solution-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .solution-label {
+            font-weight: bold;
+            color: #0066cc;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .solution-text {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .solution-benefits {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #2c3e50;
+        }
+
+        .solution-benefits li {
+            margin-bottom: 8px;
+        }
+
+        /* ROADMAP */
+        .roadmap-section {
+            background-color: #f0f4ff;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .timeline-step {
+            flex: 1;
+            min-width: 280px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-step:after {
+            content: "➜";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #0066cc;
+        }
+
+        .timeline-step:last-child:after {
+            content: "";
+        }
+
+        .step-number {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #0066cc;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .timeline-step:nth-child(2) .step-number {
+            background-color: #ff9500;
+        }
+
+        .timeline-step:nth-child(3) .step-number {
+            background-color: #1a1a1a;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .step-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #2c3e50;
+        }
+
+        .step-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .roadmap-summary {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            border-left: 5px solid #ff9500;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: white;
+            font-size: 38px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .cta-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .cta-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .cta-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff9500;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .cta-note {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 40px 0;
+            color: #ff9500;
+        }
+
+        .cta-button-large {
+            background-color: #ff9500;
+            color: white;
+            padding: 18px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button-large:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ff9500;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff9500;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .timeline-step:after {
+                content: "";
+            }
+
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">Elevate AIgency</div>
+        <ul class="navbar-menu">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#oportunidades">Oportunidades</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#casos">Casos de Éxito</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <h1>Transformación Digital con IA para Bronmat</h1>
+        <h2>Optimiza procesos, reduce costos, acelera decisiones. Resultados en 30-60 días.</h2>
+        <p>En un contexto donde la eficiencia operativa define competitividad, la inteligencia artificial ofrece oportunidades concretas para automatizar procesos financieros, operativos y comerciales. Hemos ayudado a empresas industriales como la tuya a generar resultados medibles en tiempo récord.</p>
+        <a href="#contacto" class="cta-button">Agendar Llamada Descubrimiento</a>
+        <div class="hero-footer">De: Elevate AIgency | Para: Bronmat | Noviembre 2025</div>
+    </section>
+
+    <!-- OPPORTUNITY SECTION -->
+    <section id="oportunidades" class="opportunity-section">
+        <div class="container">
+            <h2 class="section-title">El Desafío en Empresas de Manufactura</h2>
+
+            <p class="section-intro">
+                Las empresas como Bronmat enfrentan retos operativos similares. Procesos financieros manuales, análisis de datos lentos, automatización limitada en tareas repetitivas y falta de visibilidad en tiempo real de operaciones son los puntos críticos que hemos identificado en conversaciones con el sector industrial.
+            </p>
+
+            <p class="section-intro">
+                Hemos detectado que hasta 40-60% del tiempo administrativo se dedica a tareas que pueden automatizarse completamente con IA. En Bronmat, observamos que ya tienen experiencia implementando soluciones tecnológicas (sistemas de liquidación de sueldos, procesos financieros automatizados). Esto demuestra apertura a innovación y posicionamiento estratégico para crecer de forma escalable.
+            </p>
+
+            <div class="grid-4">
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">Procesos Manuales</div>
+                    <div class="card-description">Tareas administrativas que consumen 40-60% del tiempo del equipo</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">Datos Lentos</div>
+                    <div class="card-description">Análisis manual de información para tomar decisiones</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <div class="card-title">Sin Automatización</div>
+                    <div class="card-description">Procesos repetitivos sin integración tecnológica</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <div class="card-title">Falta Visibilidad</div>
+                    <div class="card-description">Sin monitoreo en tiempo real de operaciones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELEVATE AIGENCY SECTION -->
+    <section id="beneficios" class="elevate-section">
+        <div class="container">
+            <h2 class="section-title">¿Qué Hace Elevate AIgency?</h2>
+            <h3 style="text-align: center; font-size: 22px; margin-bottom: 30px; color: #0066cc;">Transformación Digital Acelerada con IA</h3>
+
+            <p class="section-intro" style="text-align: center;">
+                Somos un equipo especializado en transformación digital acelerada con IA para PYMEs y empresas medianas en Argentina y Latinoamérica. Nuestro diferencial es claro: implementamos soluciones prácticas en 30-60 días, no en años.
+            </p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <div class="card-title">Rápido</div>
+                    <div class="card-description">Implementamos soluciones prácticas en 30-60 días</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <div class="card-title">Hands-On</div>
+                    <div class="card-description">Capacitamos a tu equipo para sostener resultados</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Resultados Medibles</div>
+                    <div class="card-description">Reducción de costos, velocidad y precisión comprobadas</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 26px; margin-top: 60px; margin-bottom: 20px; color: #1a1a1a;">Lo Que Automatizamos</h3>
+            <ul class="feature-list">
+                <li>Procesos administrativos y financieros</li>
+                <li>Análisis de datos y reportes automatizados</li>
+                <li>Flujos de negociación B2B y prospección</li>
+                <li>Monitoreo de operaciones en tiempo real</li>
+                <li>Inteligencia competitiva y de mercado</li>
+            </ul>
+
+            <div class="tools-section">
+                <strong>Herramientas:</strong> Utilizamos Claude AI, Comet, Apify, n8n y soluciones personalizadas
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section id="casos" class="cases-section">
+        <div class="container">
+            <h2 class="section-title">Casos de Éxito en Empresas Similares a Bronmat</h2>
+
+            <div class="case-card featured">
+                <div class="case-empresa">Importadora y Distribuidora</div>
+                <div class="case-label">Desafío:</div>
+                <div class="case-content">Análisis manual de precios y disponibilidad de 500+ productos semanales</div>
+
+                <div class="case-label">Solución:</div>
+                <div class="case-content">Automatización con IA para monitoreo de competencia y detección de oportunidades</div>
+
+                <div class="case-result">+$3M en oportunidades detectadas en 60 días</div>
+
+                <div class="case-label">Resultados Adicionales:</div>
+                <ul class="case-extras">
+                    <li>Automatización de análisis que antes llevaba 20+ horas semanales</li>
+                    <li>Margen comercial aumentó 23%</li>
+                </ul>
+            </div>
+
+            <div class="case-card">
+                <div class="case-empresa">E-commerce B2B</div>
+                <div class="case-label">Desafío:</div>
+                <div class="case-content">Lentitud en análisis de información para decisiones estratégicas</div>
+
+                <div class="case-label">Solución:</div>
+                <div class="case-content">Sistema de inteligencia de datos con IA generativa</div>
+
+                <div class="case-result">+60% velocidad en toma de decisiones | Reportes automatizados en tiempo real</div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-empresa">Empresa de Servicios Financieros</div>
+                <div class="case-label">Desafío:</div>
+                <div class="case-content">Procesos manuales en liquidaciones, análisis de riesgos y reportes</div>
+
+                <div class="case-label">Solución:</div>
+                <div class="case-content">Automatización de flujos financieros con validación de IA</div>
+
+                <div class="case-result">-40% en tiempo de procesamiento | 0% errores en liquidaciones automatizadas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIONES BRONMAT -->
+    <section class="solutions-section">
+        <div class="container">
+            <h2 class="section-title">3 Soluciones Diseñadas para Bronmat</h2>
+
+            <div class="solution-card">
+                <div class="solution-icon">💰</div>
+                <div class="solution-title">Automatización de Procesos Financieros</div>
+
+                <div class="solution-label">Situación Actual:</div>
+                <div class="solution-text">Sistema externo maneja liquidaciones de sueldos</div>
+
+                <div class="solution-label">Oportunidad:</div>
+                <div class="solution-text">Integración de IA para automatizar análisis de costos, reportes financieros y proyecciones</div>
+
+                <div class="solution-label">Beneficio Esperado:</div>
+                <ul class="solution-benefits">
+                    <li>Reportes financieros generados automáticamente</li>
+                    <li>Análisis predictivo de márgenes</li>
+                    <li>Reducción de tiempo administrativo</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">🎯</div>
+                <div class="solution-title">Inteligencia de Datos para Ventas B2B</div>
+
+                <div class="solution-label">Situación Actual:</div>
+                <div class="solution-text">Prospección y análisis de clientes manual</div>
+
+                <div class="solution-label">Oportunidad:</div>
+                <div class="solution-text">Sistema automático de identificación de oportunidades y perfiles de clientes</div>
+
+                <div class="solution-label">Beneficio Esperado:</div>
+                <ul class="solution-benefits">
+                    <li>Identificación rápida de oportunidades</li>
+                    <li>Análisis automático de clientes</li>
+                    <li>Propuestas personalizadas en tiempo real</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon">⚡</div>
+                <div class="solution-title">Optimización Operativa en Manufactura</div>
+
+                <div class="solution-label">Situación Actual:</div>
+                <div class="solution-text">Procesos de producción con seguimiento parcial</div>
+
+                <div class="solution-label">Oportunidad:</div>
+                <div class="solution-text">Automatización de reportes y detección de cuellos de botella</div>
+
+                <div class="solution-label">Beneficio Esperado:</div>
+                <ul class="solution-benefits">
+                    <li>Visibilidad en tiempo real</li>
+                    <li>Reducción de tiempos de entrega</li>
+                    <li>Optimización de costos de producción</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="proceso" class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">Modalidad de Trabajo: 30-60 Días al Resultado</h2>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-number">FASE 1</div>
+                    <div class="step-title">Diagnóstico (1-2 semanas)</div>
+                    <ul class="step-list">
+                        <li>Entendimiento de procesos actuales en Bronmat</li>
+                        <li>Identificación de oportunidades de automatización</li>
+                        <li>Mapeo de sistemas existentes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">FASE 2</div>
+                    <div class="step-title">Prototipo Rápido (2-4 semanas)</div>
+                    <ul class="step-list">
+                        <li>Desarrollo de solución piloto en procesos prioritarios</li>
+                        <li>Validación con tu equipo</li>
+                        <li>Ajustes y refinamientos</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-number">FASE 3</div>
+                    <div class="step-title">Implementación Completa (2-4 semanas)</div>
+                    <ul class="step-list">
+                        <li>Integración en sistemas actuales</li>
+                        <li>Capacitación del equipo</li>
+                        <li>Monitoreo y optimización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="roadmap-summary">
+                <strong>Duración total:</strong> 30-60 días hasta resultados medibles. Retorno típico en 60-90 días a través de reducción de costos operativos (30-50%), incremento de productividad e incremento de oportunidades comerciales.
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA DESTACADA -->
+    <section id="contacto" class="cta-section">
+        <h2 class="section-title">Exploremos Juntos las Oportunidades de Bronmat</h2>
+
+        <p>Queremos conocer mejor tu operación y explorar cómo la IA puede acelerar el crecimiento de Bronmat. Te invitamos a una llamada de 30 minutos sin compromiso donde:</p>
+
+        <ul class="cta-list">
+            <li>Presentaremos casos de éxito en manufactura e industria</li>
+            <li>Entenderemos tus principales desafíos operativos</li>
+            <li>Identificaremos 2-3 oportunidades concretas de automatización</li>
+            <li>Definiremos si trabajar juntos es el siguiente paso</li>
+        </ul>
+
+        <div class="cta-note">No es una venta: es una exploración mutua de oportunidades.</div>
+
+        <a href="mailto:contacto@elevateaigency.com?subject=Llamada%20Descubrimiento%20-%20Bronmat" class="cta-button-large">Agendar Llamada de 30 Minutos</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Elevate AIgency</h3>
+                <p>© 2025 Elevate AIgency</p>
+                <p>Transformación Digital con IA</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📧 contacto@elevateaigency.com</p>
+                <p>📱 +54 (código de área)</p>
+                <p>🌐 www.elevateaigency.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <a href="#beneficios">Servicios</a>
+                <a href="#casos">Casos de Éxito</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
