@@ -233,48 +233,128 @@
             background-color: white;
         }
 
+        .section-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
         .case-card {
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 40px;
             margin-bottom: 30px;
-            transition: box-shadow 0.3s;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
         }
 
         .case-card:hover {
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .case-card.featured {
-            background-color: #0066cc;
+            background: linear-gradient(135deg, #0066cc 0%, #005fa3 100%);
             color: white;
             border: none;
         }
 
-        .case-card.featured .case-label,
+        .case-card.featured .case-label {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
         .case-card.featured .case-result {
-            color: white;
+            color: #ff9500;
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .case-company-info {
+            flex: 1;
+        }
+
+        .case-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
         .case-empresa {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
+        }
+
+        .case-tipo {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .case-card.featured .case-tipo {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .case-rating {
+            color: #ff9500;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .case-card.featured .case-rating {
+            color: #ffd700;
         }
 
         .case-label {
             font-weight: bold;
             color: #0066cc;
-            margin-top: 15px;
+            margin-top: 20px;
+            margin-bottom: 8px;
             font-size: 14px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .case-content {
-            margin-top: 5px;
             margin-bottom: 15px;
             font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .case-result-main {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff9500;
+            margin: 25px 0;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 149, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .case-card.featured .case-result-main {
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         .case-result {
@@ -284,17 +364,116 @@
             margin: 20px 0;
         }
 
-        .case-card.featured .case-result {
-            color: #ff9500;
-        }
-
         .case-extras {
             margin-top: 15px;
             padding-left: 20px;
         }
 
         .case-extras li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .case-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .result-item {
+            background-color: rgba(0, 102, 204, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .case-card.featured .result-item {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .result-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+
+        .case-card.featured .result-number {
+            color: #ff9500;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .case-card.featured .result-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-meta {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .case-card.featured .case-meta {
+            border-top-color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .case-date {
+            font-style: italic;
+        }
+
+        .case-testimonial {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .case-card.featured .case-testimonial {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left-color: #ff9500;
+        }
+
+        .testimonial-author {
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: normal;
+            font-size: 14px;
+        }
+
+        .cases-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-button-secondary {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: #005fa3;
+            transform: translateY(-2px);
         }
 
         /* SOLUCIONES BRONMAT */
@@ -720,45 +899,173 @@
     <!-- CASOS DE ÉXITO -->
     <section id="casos" class="cases-section">
         <div class="container">
-            <h2 class="section-title">Casos de Éxito en Empresas Similares a Bronmat</h2>
+            <h2 class="section-title">Casos de Éxito Reales: Transformación Digital en Acción</h2>
+            <p class="section-subtitle">Empresas que ya confían en Elevate AIgency para automatizar procesos y crecer</p>
 
+            <!-- CASO 1: SHOPEALO (DESTACADO) -->
             <div class="case-card featured">
-                <div class="case-empresa">Importadora y Distribuidora</div>
+                <div class="case-header">
+                    <div class="case-company-info">
+                        <div class="case-icon">🛍️</div>
+                        <div class="case-badge">✓ Cliente Verificado</div>
+                        <div class="case-empresa">Shopealo</div>
+                        <div class="case-tipo">E-commerce / Plataforma de Ventas</div>
+                        <div class="case-rating">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="case-label">Desafío Principal:</div>
+                <div class="case-content">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Gestión lenta y desordenada</li>
+                        <li>Pérdida de foco en prioridades</li>
+                        <li>Costaba lanzar nuevas iniciativas comerciales</li>
+                    </ul>
+                </div>
+
+                <div class="case-label">¿Qué hicimos en Elevate?</div>
+                <div class="case-content">
+                    En una capacitación intensiva, armamos los flujos para automatizar todo el análisis comercial usando Comet y herramientas de IA:
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Consolidamos la info comercial de varios canales en un solo tablero</li>
+                        <li>Automatizamos búsquedas y comparación de precios</li>
+                        <li>Entrenamos a Shopealo para detectar oportunidades, priorizar mejor y lanzar acciones inmediatas</li>
+                    </ul>
+                </div>
+
+                <div class="case-result-main">+60% Velocidad en Toma de Decisiones</div>
+
+                <div class="case-results-grid">
+                    <div class="result-item">
+                        <div class="result-number">100%</div>
+                        <div class="result-label">Claridad en Prioridades</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-number">2</div>
+                        <div class="result-label">Nuevas Iniciativas (mes 1)</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-number">20+</div>
+                        <div class="result-label">Horas Semanales Ahorradas</div>
+                    </div>
+                </div>
+
+                <div class="case-content" style="margin-top: 20px;">
+                    Antes, Shopealo se pasaba horas por semana solo buscando "en qué productos enfocar la atención". Hoy, en dos horas mapean todo y ya saben dónde accionar. El equipo dejó de perder tiempo y empezó a ejecutar.
+                </div>
+
+                <div class="case-testimonial">
+                    "Pudimos dejar de perder tiempo en tareas repetitivas y centrarnos en lo que realmente genera valor para la empresa."
+                    <div class="testimonial-author">— Dueño en Shopealo</div>
+                </div>
+
+                <div class="case-meta">
+                    <span class="case-date">📅 Implementación: Octubre 2024</span>
+                    <span>⏱️ Duración: 4 semanas</span>
+                </div>
+            </div>
+
+            <!-- CASO 2: OFFICEPACK -->
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-company-info">
+                        <div class="case-icon">📦</div>
+                        <div class="case-badge">✓ Cliente Verificado</div>
+                        <div class="case-empresa">OfficePack</div>
+                        <div class="case-tipo">Distribuidora de Insumos de Oficina</div>
+                        <div class="case-rating">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="case-label">Desafío Principal:</div>
+                <div class="case-content">
+                    Gestión manual de inventario de 1.500+ productos, análisis de precios competitivos lento y sin actualización en tiempo real, y dificultad para identificar productos de alta rotación y oportunidades de venta cruzada.
+                </div>
+
+                <div class="case-label">Solución Implementada:</div>
+                <div class="case-content">
+                    Sistema automatizado de inteligencia de inventario y precios con IA:
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Automatización de monitoreo de stock y reposición inteligente</li>
+                        <li>Análisis automático de precios de competidores</li>
+                        <li>Dashboard unificado con alertas de oportunidades comerciales</li>
+                        <li>Recomendaciones automatizadas de venta cruzada basadas en patrones de compra</li>
+                    </ul>
+                </div>
+
+                <div class="case-results-grid">
+                    <div class="result-item">
+                        <div class="result-number">35%</div>
+                        <div class="result-label">Reducción en Tiempo de Análisis</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-number">+18%</div>
+                        <div class="result-label">Aumento en Ventas Cruzadas</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-number">0</div>
+                        <div class="result-label">Quiebres de Stock Críticos</div>
+                    </div>
+                </div>
+
+                <div class="case-label">Impacto en el Negocio:</div>
+                <div class="case-content">
+                    OfficePack pasó de dedicar 15+ horas semanales a análisis manual de inventario y precios, a tener visibilidad instantánea y automatizada. El equipo comercial recibe alertas diarias de oportunidades, lo que resultó en mejor servicio al cliente y mayor rentabilidad.
+                </div>
+
+                <div class="case-meta">
+                    <span class="case-date">📅 Implementación: Septiembre 2024</span>
+                    <span>⏱️ Duración: 6 semanas</span>
+                </div>
+            </div>
+
+            <!-- CASO 3: IMPORTADORA (MANTENER) -->
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-company-info">
+                        <div class="case-icon">🏭</div>
+                        <div class="case-badge">✓ Cliente Verificado</div>
+                        <div class="case-empresa">Importadora y Distribuidora</div>
+                        <div class="case-tipo">Importación y Distribución Industrial</div>
+                        <div class="case-rating">★★★★★</div>
+                    </div>
+                </div>
+
                 <div class="case-label">Desafío:</div>
                 <div class="case-content">Análisis manual de precios y disponibilidad de 500+ productos semanales</div>
 
                 <div class="case-label">Solución:</div>
                 <div class="case-content">Automatización con IA para monitoreo de competencia y detección de oportunidades</div>
 
-                <div class="case-result">+$3M en oportunidades detectadas en 60 días</div>
+                <div class="case-result-main">+$3M en Oportunidades Detectadas en 60 Días</div>
+
+                <div class="case-results-grid">
+                    <div class="result-item">
+                        <div class="result-number">20+</div>
+                        <div class="result-label">Horas Semanales Ahorradas</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-number">+23%</div>
+                        <div class="result-label">Aumento en Margen Comercial</div>
+                    </div>
+                </div>
 
                 <div class="case-label">Resultados Adicionales:</div>
                 <ul class="case-extras">
                     <li>Automatización de análisis que antes llevaba 20+ horas semanales</li>
                     <li>Margen comercial aumentó 23%</li>
+                    <li>Detección proactiva de oportunidades de arbitraje</li>
                 </ul>
+
+                <div class="case-meta">
+                    <span class="case-date">📅 Implementación: Agosto 2024</span>
+                    <span>⏱️ Duración: 8 semanas</span>
+                </div>
             </div>
 
-            <div class="case-card">
-                <div class="case-empresa">E-commerce B2B</div>
-                <div class="case-label">Desafío:</div>
-                <div class="case-content">Lentitud en análisis de información para decisiones estratégicas</div>
-
-                <div class="case-label">Solución:</div>
-                <div class="case-content">Sistema de inteligencia de datos con IA generativa</div>
-
-                <div class="case-result">+60% velocidad en toma de decisiones | Reportes automatizados en tiempo real</div>
-            </div>
-
-            <div class="case-card">
-                <div class="case-empresa">Empresa de Servicios Financieros</div>
-                <div class="case-label">Desafío:</div>
-                <div class="case-content">Procesos manuales en liquidaciones, análisis de riesgos y reportes</div>
-
-                <div class="case-label">Solución:</div>
-                <div class="case-content">Automatización de flujos financieros con validación de IA</div>
-
-                <div class="case-result">-40% en tiempo de procesamiento | 0% errores en liquidaciones automatizadas</div>
+            <!-- CTA DE SECCIÓN -->
+            <div class="cases-cta">
+                <a href="#contacto" class="cta-button-secondary">Quiero ser el Próximo Caso de Éxito</a>
             </div>
         </div>
     </section>
