@@ -489,6 +489,7 @@
             margin-bottom: 30px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
         }
 
         .solution-card:hover {
@@ -519,16 +520,140 @@
             margin-top: 5px;
             margin-bottom: 15px;
             color: #2c3e50;
+            line-height: 1.7;
         }
 
         .solution-benefits {
             margin-top: 10px;
-            padding-left: 20px;
+            padding-left: 0;
+            list-style: none;
             color: #2c3e50;
         }
 
         .solution-benefits li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .solution-benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .solution-benefits li strong {
+            color: #0066cc;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .roi-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .impact-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .impact-box strong {
+            color: #0066cc;
+            font-size: 16px;
+        }
+
+        .impact-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .impact-list li {
             margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .tech-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .comparison-visual {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .comparison-row.before {
+            background-color: #ffe6e6;
+        }
+
+        .comparison-row.after {
+            background-color: #e6f7e6;
+        }
+
+        .comparison-label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .comparison-row.before .comparison-label {
+            color: #d9534f;
+        }
+
+        .comparison-row.after .comparison-label {
+            color: #28a745;
+        }
+
+        .comparison-items {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .use-case-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9500;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .use-case-box strong {
+            color: #ff9500;
+            font-size: 16px;
         }
 
         /* ROADMAP */
@@ -1112,21 +1237,88 @@
             </div>
 
             <div class="solution-card">
-                <div class="solution-icon">⚡</div>
-                <div class="solution-title">Optimización Operativa en Manufactura</div>
+                <div class="roi-badge">ROI: 60-90 días</div>
+                <div class="solution-icon">📊</div>
+                <div class="solution-title">Predicción Inteligente de Stock con Machine Learning</div>
 
                 <div class="solution-label">Situación Actual:</div>
-                <div class="solution-text">Procesos de producción con seguimiento parcial</div>
+                <div class="solution-text">
+                    Gestión de inventario reactiva: esperas a que falten productos para reordenar, o acumulas stock excesivo sin venderlo. Esto genera dos problemas críticos: <strong>pérdidas por stockout</strong> (sin disponibilidad cuando hay demanda) y <strong>pérdidas por overstock</strong> (dinero inmovilizado en productos que no se venden).
+                </div>
 
                 <div class="solution-label">Oportunidad:</div>
-                <div class="solution-text">Automatización de reportes y detección de cuellos de botella</div>
+                <div class="solution-text">
+                    Sistema predictivo basado en <strong>Machine Learning</strong> que analiza histórico de ventas, tendencias de mercado, estacionalidad y patrones de compra para predecir con precisión qué productos necesitarás en los próximos 30-90 días. Evita tanto desabastecimiento como acumulación innecesaria.
+                </div>
 
-                <div class="solution-label">Beneficio Esperado:</div>
+                <div class="solution-label">Beneficios Esperados:</div>
                 <ul class="solution-benefits">
-                    <li>Visibilidad en tiempo real</li>
-                    <li>Reducción de tiempos de entrega</li>
-                    <li>Optimización de costos de producción</li>
+                    <li>
+                        <strong>Cero Stockouts Preventivos</strong>
+                        Predice desabastecimiento antes de que ocurra. Reordena automáticamente productos críticos en el momento óptimo, evitando pérdidas de ventas y clientes insatisfechos.
+                    </li>
+                    <li>
+                        <strong>Reducción de Overstock (Dinero Recuperado)</strong>
+                        Identifica productos con bajo movimiento antes de acumular stock innecesario. Reduce capital inmovilizado en inventario muerto, liberando <strong>cash flow</strong> para invertir en crecimiento.
+                    </li>
+                    <li>
+                        <strong>Optimización de Márgenes</strong>
+                        Al balancear oferta y demanda, mejora el margen operativo. Reduce costos de almacenamiento, mermas y devoluciones.
+                    </li>
+                    <li>
+                        <strong>Decisiones Basadas en Datos</strong>
+                        Dashboard en tiempo real con <strong>predicciones automáticas</strong>. Tus gerentes toman decisiones informadas, no intuitivas.
+                    </li>
                 </ul>
+
+                <div class="comparison-visual">
+                    <div class="comparison-row before">
+                        <div>
+                            <div class="comparison-label">❌ Antes (sin predicción)</div>
+                            <div class="comparison-items">
+                                <span>📈 Picos de stock</span>
+                                <span>📉 Valles de desabastecimiento</span>
+                                <span>💸 Dinero atrapado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-row after">
+                        <div>
+                            <div class="comparison-label">✅ Después (con predicción)</div>
+                            <div class="comparison-items">
+                                <span>➡️ <strong>Stock óptimo</strong></span>
+                                <span>✅ Disponibilidad consistente</span>
+                                <span>💰 <strong>Cash flow</strong> liberado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-box">
+                    <strong>Impacto Financiero Esperado:</strong>
+                    <p style="margin-top: 10px;">Empresas con este sistema típicamente ven:</p>
+                    <ul class="impact-list">
+                        <li>Reducción de <strong style="color: #ff9500;">20-35%</strong> en dinero inmovilizado en stock</li>
+                        <li>Aumento de <strong style="color: #ff9500;">15-25%</strong> en disponibilidad de productos</li>
+                        <li>Mejora de <strong style="color: #ff9500;">10-18%</strong> en margen de ganancia operativa</li>
+                    </ul>
+                </div>
+
+                <div class="solution-label">Cómo Funciona:</div>
+                <div class="solution-text">
+                    Nuestro modelo de <strong>Machine Learning</strong> ingiere 3+ años de datos históricos: ventas por producto, fecha, temporada, comportamiento de clientes. Luego predice automáticamente demanda futura y recomienda niveles óptimos de reorden. Se autoajusta cada semana según nuevos datos.
+                </div>
+
+                <div class="tech-box">
+                    <strong>Tecnología Utilizada:</strong> Python + modelos de predicción (ARIMA, Prophet, XGBoost) + integración con tu sistema de ventas actual
+                </div>
+
+                <div class="use-case-box">
+                    <strong>Caso de Uso Específico para Bronmat:</strong>
+                    <p style="margin-top: 10px; color: #2c3e50;">
+                        Si tienes 100+ <strong>SKUs</strong> de fundiciones de bronce, el sistema predice cuáles tendrán mayor demanda en próximas semanas. Te permite ajustar producción en fundición, evitando tanto parones por falta de material como exceso de fundiciones que no se venden.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
